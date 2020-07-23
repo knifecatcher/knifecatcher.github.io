@@ -17,13 +17,13 @@ body
 body a
 {
     text-decoration: none;
-    color: #191919;
+    color: #FD3137;
     transition: color .2s linear, background-color .2s linear, border-color .2s linear;
 }
 
 body a:hover
 {
-    color: #FD3137;
+    color: #191919;
 }
 
 input, textarea, select 
@@ -595,7 +595,7 @@ ul.archive-list li span
 {
     content: "\2022";
     display: inline-block;
-    margin: 0 20px;
+    margin: 0 0px;
     color: #e2dfd9;
 }
 
@@ -651,13 +651,13 @@ ul.archive-list li span
 .portfolio-text-holder
 {
     position: absolute;
-    top: 30px;
-    left: 30px;
-    bottom: 30px;
-    right: 30px;
+    top: 0px;
+    left: 0px;
+    bottom: 0px;
+    right: 0px;
     z-index: 1;
     font-size: 20px;
-    background-color: white;
+    background-color: rgba(255, 255, 255, 0.5);
     text-align: center;   
     display: none;    
 }
@@ -1230,10 +1230,10 @@ li.left-footer-content.mobile
 
     .portfolio-text-holder 
     {
-        top: 10px;
-        left: 10px;
-        bottom: 10px;
-        right: 10px;
+        top: 0px;
+        left: 0px;
+        bottom: 0px;
+        right: 0px;
     }
 
     .header-holder 
@@ -1371,10 +1371,10 @@ li.left-footer-content.mobile
 
     .portfolio-text-holder 
     {
-        top: 30px;
-        left: 30px;
-        right: 30px;
-        bottom: 30px;
+        top: 0px;
+        left: 0px;
+        right: 0px;
+        bottom: 0px;
     }    
     
     .single-post .content-wrap
