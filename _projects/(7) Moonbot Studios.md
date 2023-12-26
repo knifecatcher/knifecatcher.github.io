@@ -1,7 +1,7 @@
 ---
 name: Moonbot Studios
 tools: 
-image: /assets/moonbot/moonbot_logo.jpg
+image: /assets/moonbot/moonbot_dolby.jpg
 description:
 ---
 
