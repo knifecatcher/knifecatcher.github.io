@@ -35,6 +35,7 @@ weight: 3
     "Any sufficiently advanced technology is indistinguishable from magic.",
     "Stay hungry. Stay foolish.",
     "Think lightly of yourself and deeply of the world.",
+    "Make things for each other.",
   ];
 
   document.getElementById("quote").innerText =
