@@ -36,6 +36,7 @@ weight: 3
     "Stay hungry. Stay foolish.",
     "Think lightly of yourself and deeply of the world.",
     "Make things for each other.",
+    "This present moment used to be the unimaginable future.",
   ];
 
   document.getElementById("quote").innerText =
