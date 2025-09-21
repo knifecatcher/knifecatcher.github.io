@@ -7,7 +7,7 @@ description:
 
 # Meta Orion
 <br>
-Orion packs a massive amount of innovation in a tiny package:<br>
+Orion packs a massive amount of innovation in a tiny package:<br><br>
 -Large holographic displays that let you use the real world as your canvas<br>
 -An input and interaction system that seamlessly combines voice, eye gaze, and hand tracking with an EMG wristband<br>
 -The ultimate Meta AI assistant that can sense and understand the world around you<br>
