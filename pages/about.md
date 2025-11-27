@@ -27,16 +27,16 @@ weight: 3
 <script>
   const quotes = [
     "You appear, have a chance to blaze in the sky, then you disappear.",
-    "Victory through superior software.",
-    "The quick shall inherit the earth.",
+    "Don't mistake motion for progress.",
     "Bright lattices of logic unfolding across that colorless void.",
     "You'll think of something.",
     "The future is already here, it's just not very evenly distributed.",
     "Any sufficiently advanced technology is indistinguishable from magic.",
-    "Stay hungry. Stay foolish.",
     "Think lightly of yourself and deeply of the world.",
     "Make things for each other.",
     "This present moment used to be the unimaginable future.",
+    "The magic is non-negotiable.",
+    "The best way to predict the future is to invent it."
   ];
 
   document.getElementById("quote").innerText =
