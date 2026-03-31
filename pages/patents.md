@@ -8,7 +8,8 @@ weight: 2
 # **Patents**
 
 {% capture list_items %}
-Methods for Smart Message Delivery and Capturing Moments in the Past ,https://patents.google.com/patent/US20240319784A1
+Using a Gesture to Invoke or Banish an AI Assistant,https://patents.google.com/patent/US20260010236A1
+Methods for Smart Message Delivery and Capturing Moments in the Past,https://patents.google.com/patent/US20240319784A1
 Artificial Reality System for Code Recognition and Health Metrics,https://patents.google.com/patent/US20240220752A1/
 Techniques for Animating an Avatar Based on Sensor Data,https://patents.google.com/patent/US20240233233A1/
 Artificial Reality Integrations with External Devices,https://patents.google.com/patent/US20240037879A1/
