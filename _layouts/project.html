@@ -1,0 +1,152 @@
+---
+layout: default
+---
+{% assign hero_src = page.hero %}
+{% assign hero_ext = hero_src | split: '.' | last | downcase %}
+{% if hero_src contains '://' or hero_src contains 'data:' %}
+  {% assign hero_url = hero_src %}
+{% else %}
+  {% assign hero_url = hero_src | relative_url %}
+{% endif %}
+
+<article class="project-detail">
+  <section class="project-hero" data-reveal>
+    <figure class="project-hero__media{% if page.hero_embed %} project-hero__media--embed{% endif %}">
+      {% if page.hero_embed %}
+        <iframe src="{{ page.hero_embed }}" title="{{ page.title }} hero video" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+      {% elsif hero_ext == 'mp4' or hero_ext == 'webm' %}
+        <video autoplay muted loop playsinline preload="metadata" aria-label="{{ page.title }} hero video" data-media>
+          <source src="{{ hero_url }}" type="video/{{ hero_ext }}">
+        </video>
+      {% else %}
+        <img src="{{ hero_url }}" alt="{{ page.title }} hero image" data-media>
+      {% endif %}
+    </figure>
+    <div class="project-hero__panel">
+      <p class="kicker">{{ page.client }} / {{ page.year }}</p>
+      <h1>{{ page.title }}</h1>
+      <p class="project-hero__summary">{{ page.summary }}</p>
+      {% if page.summary_items %}
+        <ul class="project-hero__summary-list">
+          {% for item in page.summary_items %}
+            <li>{{ item }}</li>
+          {% endfor %}
+        </ul>
+      {% endif %}
+    </div>
+  </section>
+
+  {% if page.gallery_sections %}
+    {% for section in page.gallery_sections %}
+      <section class="project-media-section" aria-label="{{ section.title | default: page.title }}" data-reveal>
+        {% if section.eyebrow or section.title or section.text %}
+          <div class="project-media-section__intro">
+            {% if section.eyebrow %}
+              <span class="project-media-section__eyebrow">{{ section.eyebrow }}</span>
+            {% endif %}
+            {% if section.title %}
+              <h2>{{ section.title }}</h2>
+            {% endif %}
+            {% if section.text %}
+              <p>{{ section.text }}</p>
+            {% endif %}
+          </div>
+        {% endif %}
+        <div class="project-gallery">
+          {% for item in section.items %}
+            {% if item.src %}
+              {% assign gallery_src = item.src %}
+              {% assign gallery_alt = item.alt | default: page.title %}
+              {% assign gallery_aspect = item.aspect | default: 'landscape' %}
+              {% assign gallery_caption = item.caption %}
+            {% else %}
+              {% assign gallery_src = item %}
+              {% assign gallery_alt = page.title %}
+              {% assign gallery_aspect = 'landscape' %}
+              {% assign gallery_caption = nil %}
+            {% endif %}
+            {% if gallery_src contains '://' or gallery_src contains 'data:' %}
+              {% assign gallery_url = gallery_src %}
+            {% else %}
+              {% assign gallery_url = gallery_src | relative_url %}
+            {% endif %}
+            {% assign gallery_ext = gallery_src | split: '.' | last | downcase %}
+            <figure class="gallery-card gallery-card--{{ gallery_aspect }}">
+              <div class="gallery-card__media">
+                {% if gallery_ext == 'mp4' or gallery_ext == 'webm' %}
+                  <video autoplay muted loop playsinline preload="metadata" aria-label="{{ gallery_alt }}" data-media>
+                    <source src="{{ gallery_url }}" type="video/{{ gallery_ext }}">
+                  </video>
+                {% else %}
+                  <img src="{{ gallery_url }}" alt="{{ gallery_alt }}" loading="lazy" data-media>
+                {% endif %}
+              </div>
+              {% if gallery_caption %}
+                <figcaption class="gallery-card__caption">{{ gallery_caption }}</figcaption>
+              {% endif %}
+            </figure>
+          {% endfor %}
+        </div>
+      </section>
+    {% endfor %}
+  {% elsif page.gallery %}
+    <section class="project-media-section" aria-label="{{ page.title }} gallery" data-reveal>
+      {% if page.gallery_eyebrow or page.gallery_title or page.gallery_text %}
+        <div class="project-media-section__intro">
+          {% if page.gallery_eyebrow %}
+            <span class="project-media-section__eyebrow">{{ page.gallery_eyebrow }}</span>
+          {% endif %}
+          {% if page.gallery_title %}
+            <h2>{{ page.gallery_title }}</h2>
+          {% endif %}
+          {% if page.gallery_text %}
+            <p>{{ page.gallery_text }}</p>
+          {% endif %}
+        </div>
+      {% endif %}
+      <div class="project-gallery">
+        {% for item in page.gallery %}
+          {% if item.src %}
+            {% assign gallery_src = item.src %}
+            {% assign gallery_alt = item.alt | default: page.title %}
+            {% assign gallery_aspect = item.aspect | default: 'landscape' %}
+            {% assign gallery_caption = item.caption %}
+          {% else %}
+            {% assign gallery_src = item %}
+            {% assign gallery_alt = page.title %}
+            {% assign gallery_aspect = 'landscape' %}
+            {% assign gallery_caption = nil %}
+          {% endif %}
+          {% if gallery_src contains '://' or gallery_src contains 'data:' %}
+            {% assign gallery_url = gallery_src %}
+          {% else %}
+            {% assign gallery_url = gallery_src | relative_url %}
+          {% endif %}
+          {% assign gallery_ext = gallery_src | split: '.' | last | downcase %}
+          <figure class="gallery-card gallery-card--{{ gallery_aspect }}">
+            <div class="gallery-card__media">
+              {% if gallery_ext == 'mp4' or gallery_ext == 'webm' %}
+                <video autoplay muted loop playsinline preload="metadata" aria-label="{{ gallery_alt }}" data-media>
+                  <source src="{{ gallery_url }}" type="video/{{ gallery_ext }}">
+                </video>
+              {% else %}
+                <img src="{{ gallery_url }}" alt="{{ gallery_alt }}" loading="lazy" data-media>
+              {% endif %}
+            </div>
+            {% if gallery_caption %}
+              <figcaption class="gallery-card__caption">{{ gallery_caption }}</figcaption>
+            {% endif %}
+          </figure>
+        {% endfor %}
+      </div>
+    </section>
+  {% endif %}
+
+  {% assign project_content = content | strip %}
+  {% if project_content != '' %}
+    <section class="project-body prose" data-reveal>
+      {{ content }}
+    </section>
+  {% endif %}
+
+</article>

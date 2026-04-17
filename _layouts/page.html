@@ -1,0 +1,17 @@
+---
+layout: default
+---
+<article class="page-panel" data-reveal>
+  <header class="page-panel__header">
+    {% if page.kicker %}
+      <p class="kicker">{{ page.kicker }}</p>
+    {% endif %}
+    <h1>{{ page.title }}</h1>
+    {% if page.description %}
+      <p class="page-panel__lede">{{ page.description }}</p>
+    {% endif %}
+  </header>
+  <div class="page-panel__body prose">
+    {{ content }}
+  </div>
+</article>

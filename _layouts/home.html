@@ -1,0 +1,32 @@
+---
+layout: default
+---
+{% assign projects = site.projects | sort: "order" %}
+
+<section class="project-grid" aria-label="Selected projects">
+  {% for project in projects %}
+    {% assign thumb_src = project.thumb %}
+    {% assign thumb_ext = thumb_src | split: '.' | last | downcase %}
+    {% if thumb_src contains '://' or thumb_src contains 'data:' %}
+      {% assign thumb_url = thumb_src %}
+    {% else %}
+      {% assign thumb_url = thumb_src | relative_url %}
+    {% endif %}
+    <article class="project-card project-card--{{ project.tile }}" data-reveal>
+      <a class="project-card__link" href="{{ project.url | relative_url }}" aria-label="{{ project.title }}">
+        <div class="project-card__media">
+          {% if thumb_ext == 'mp4' or thumb_ext == 'webm' %}
+            <video autoplay muted loop playsinline preload="metadata" aria-label="{{ project.title }} preview" data-media>
+              <source src="{{ thumb_url }}" type="video/{{ thumb_ext }}">
+            </video>
+          {% else %}
+            <img src="{{ thumb_url }}" alt="{{ project.title }} preview" loading="lazy" data-media>
+          {% endif %}
+          <div class="project-card__meta" aria-hidden="true">
+            <div class="project-card__chip">{{ project.title }}</div>
+          </div>
+        </div>
+      </a>
+    </article>
+  {% endfor %}
+</section>
