@@ -100,16 +100,6 @@ permalink: /patents/
       </div>
     </a>
 
-    <a class="patent-card" href="https://patents.google.com/patent/US20250044932A1" target="_blank" rel="noopener noreferrer">
-      <div class="patent-card__top">
-        <span class="patent-card__number">US20250044932A1</span>
-        <span class="patent-card__number">2020</span>
-      </div>
-      <div class="patent-card__body">
-        <h2>User Interfaces Related to Time</h2>
-      </div>
-    </a>
-
     <a class="patent-card" href="https://patents.google.com/patent/US20240319784A1" target="_blank" rel="noopener noreferrer">
       <div class="patent-card__top">
         <span class="patent-card__number">US20240319784A1</span>
@@ -147,6 +137,16 @@ permalink: /patents/
       </div>
       <div class="patent-card__body">
         <h2>Artificial Reality Integrations with External Devices</h2>
+      </div>
+    </a>
+
+    <a class="patent-card" href="https://patents.google.com/patent/US20250044932A1" target="_blank" rel="noopener noreferrer">
+      <div class="patent-card__top">
+        <span class="patent-card__number">US20250044932A1</span>
+        <span class="patent-card__number">2020</span>
+      </div>
+      <div class="patent-card__body">
+        <h2>User Interfaces Related to Time</h2>
       </div>
     </a>
 

@@ -392,6 +392,14 @@ h3 {
   object-fit: cover;
 }
 
+.project-card__poster--mobile {
+  display: none;
+}
+
+.project-card__video--desktop {
+  display: block;
+}
+
 .project-card__meta {
   position: absolute;
   inset: 0;
@@ -1007,6 +1015,16 @@ h3 {
 
   .project-card__meta {
     padding: 0.8rem;
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .project-card__poster--mobile {
+    display: block;
+  }
+
+  .project-card__video--desktop {
+    display: none;
   }
 
   .project-card__chip {

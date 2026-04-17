@@ -7,7 +7,9 @@ const useHoverHomeVideos = supportsHover && desktopHomeMediaQuery.matches;
 const revealItems = Array.from(document.querySelectorAll("[data-reveal]"));
 const mediaItems = Array.from(document.querySelectorAll("[data-media]"));
 const managedVideos = mediaItems.filter((media) => media.matches("[data-managed-video]"));
-const hoverVideos = mediaItems.filter((media) => media.matches("[data-hover-video]"));
+const hoverVideos = Array.from(document.querySelectorAll("[data-hover-video]")).filter(
+  (video) => useHoverHomeVideos || !video.matches(".project-card__video--desktop")
+);
 
 const markMediaReady = (media) => {
   media.classList.add("is-ready");
@@ -191,21 +193,6 @@ if (hoverVideos.length && !prefersReducedMotion && useHoverHomeVideos) {
       enableAutoplay(video);
     });
   } else if ("IntersectionObserver" in window) {
-    const warmTouchHomeVideos = () => {
-      hoverVideos.forEach((video) => {
-        if (!video.dataset.activated) {
-          video.dataset.playWhenReady = "false";
-          activateVideo(video);
-        }
-      });
-    };
-
-    if ("requestIdleCallback" in window) {
-      window.requestIdleCallback(warmTouchHomeVideos, { timeout: 1500 });
-    } else {
-      window.setTimeout(warmTouchHomeVideos, 300);
-    }
-
     const hoverVideoObserver = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
@@ -220,8 +207,8 @@ if (hoverVideos.length && !prefersReducedMotion && useHoverHomeVideos) {
         });
       },
       {
-        rootMargin: "150px 0px",
-        threshold: 0.2
+        rootMargin: "50px 0px",
+        threshold: 0.35
       }
     );
 
