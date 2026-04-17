@@ -3,7 +3,7 @@ title: Animoji + Memoji
 order: 4
 summary: 'Animoji and Memoji turned expressive face tracking into a product language that could stretch from delight to identity across the entire Apple ecosystem. Winner of the <a href="https://www.dandad.org/awards/professional/2019/digital-design/231420/apple-memoji/" target="_blank" rel="noopener noreferrer">D&amp;AD Wood Pencil</a>.'
 thumb: /assets/memoji/memoji_thumbnail.webm
-hero: /assets/memoji/memoji_grid.jpg
+hero: /assets/memoji/memoji_grid.JPG
 year: "2018-2022"
 client: Apple
 tile: landscape-short

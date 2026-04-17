@@ -3,7 +3,7 @@ title: AR Quick Look
 order: 5
 summary: Contributed to AR Quick Look by developing HDRI environments for in-view lighting and creating USDZ sample assets to support realistic rendering and developer adoption.
 thumb: /assets/ARQL/arql_thumbnail.webm
-hero: /assets/ARQL/arql_logo.jpg
+hero: /assets/ARQL/ARQL_logo.jpg
 year: "2018"
 client: Apple
 tile: landscape-short
