@@ -15,7 +15,7 @@ layout: default
       {% if page.hero_embed %}
         <iframe src="{{ page.hero_embed }}" title="{{ page.title }} hero video" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen loading="lazy"></iframe>
       {% elsif hero_ext == 'mp4' or hero_ext == 'webm' %}
-        <video autoplay muted loop playsinline preload="metadata" aria-label="{{ page.title }} hero video" data-media>
+        <video muted loop playsinline preload="none" aria-label="{{ page.title }} hero video" data-media data-managed-video>
           <source src="{{ hero_url }}" type="video/{{ hero_ext }}">
         </video>
       {% else %}
@@ -74,7 +74,7 @@ layout: default
             <figure class="gallery-card gallery-card--{{ gallery_aspect }}">
               <div class="gallery-card__media">
                 {% if gallery_ext == 'mp4' or gallery_ext == 'webm' %}
-                  <video autoplay muted loop playsinline preload="metadata" aria-label="{{ gallery_alt }}" data-media>
+                  <video muted loop playsinline preload="none" aria-label="{{ gallery_alt }}" data-media data-managed-video>
                     <source src="{{ gallery_url }}" type="video/{{ gallery_ext }}">
                   </video>
                 {% else %}
@@ -126,7 +126,7 @@ layout: default
           <figure class="gallery-card gallery-card--{{ gallery_aspect }}">
             <div class="gallery-card__media">
               {% if gallery_ext == 'mp4' or gallery_ext == 'webm' %}
-                <video autoplay muted loop playsinline preload="metadata" aria-label="{{ gallery_alt }}" data-media>
+                <video muted loop playsinline preload="none" aria-label="{{ gallery_alt }}" data-media data-managed-video>
                   <source src="{{ gallery_url }}" type="video/{{ gallery_ext }}">
                 </video>
               {% else %}

@@ -349,6 +349,7 @@ h3 {
   overflow: hidden;
   border-radius: var(--radius);
   aspect-ratio: 1 / 1;
+  background: rgba(23, 18, 15, 0.06);
 }
 
 .project-card__media::after {

@@ -16,7 +16,7 @@ layout: default
       <a class="project-card__link" href="{{ project.url | relative_url }}" aria-label="{{ project.title }}">
         <div class="project-card__media">
           {% if thumb_ext == 'mp4' or thumb_ext == 'webm' %}
-            <video autoplay muted loop playsinline preload="metadata" aria-label="{{ project.title }} preview" data-media>
+            <video muted loop playsinline preload="metadata" aria-label="{{ project.title }} preview" data-media data-hover-video>
               <source src="{{ thumb_url }}" type="video/{{ thumb_ext }}">
             </video>
           {% else %}

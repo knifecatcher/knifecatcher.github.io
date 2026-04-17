@@ -1,7 +1,13 @@
 const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+const supportsHover = window.matchMedia("(hover: hover) and (pointer: fine)").matches;
+const desktopHomeMediaQuery = window.matchMedia("(min-width: 900px)");
+const isHomeTemplate = document.body.classList.contains("template-home");
+const useHoverHomeVideos = supportsHover && desktopHomeMediaQuery.matches;
 
 const revealItems = Array.from(document.querySelectorAll("[data-reveal]"));
 const mediaItems = Array.from(document.querySelectorAll("[data-media]"));
+const managedVideos = mediaItems.filter((media) => media.matches("[data-managed-video]"));
+const hoverVideos = mediaItems.filter((media) => media.matches("[data-hover-video]"));
 
 const markMediaReady = (media) => {
   media.classList.add("is-ready");
@@ -41,6 +47,198 @@ mediaItems.forEach((media) => {
 
   markMediaReady(media);
 });
+
+const activateVideo = (video) => {
+  const shouldPlayWhenReady = video.dataset.playWhenReady === "true";
+
+  const attemptPlay = () => {
+    const playAttempt = video.play();
+    if (playAttempt && typeof playAttempt.catch === "function") {
+      playAttempt.catch(() => {});
+    }
+  };
+
+  if (!video.dataset.activated) {
+    video.dataset.activated = "true";
+    video.preload = video.matches("[data-hover-video]") ? "auto" : "metadata";
+    if (shouldPlayWhenReady) {
+      video.addEventListener("canplay", attemptPlay, { once: true });
+    }
+    video.load();
+    return;
+  }
+
+  if (shouldPlayWhenReady) {
+    if (video.readyState < 2) {
+      video.addEventListener("canplay", attemptPlay, { once: true });
+      return;
+    }
+
+    attemptPlay();
+  }
+};
+
+const resetVideo = (video) => {
+  video.pause();
+};
+
+const enableAutoplay = (video) => {
+  video.autoplay = true;
+  video.setAttribute("autoplay", "");
+  video.dataset.playWhenReady = "true";
+  activateVideo(video);
+};
+
+const disableAutoplay = (video) => {
+  video.autoplay = false;
+  video.removeAttribute("autoplay");
+  video.dataset.playWhenReady = "false";
+  resetVideo(video);
+};
+
+if (managedVideos.length) {
+  if (prefersReducedMotion) {
+    managedVideos.forEach((video) => {
+      video.pause();
+      markMediaReady(video);
+    });
+  } else if (!isHomeTemplate) {
+    managedVideos.forEach((video) => {
+      enableAutoplay(video);
+    });
+  } else if ("IntersectionObserver" in window) {
+    const videoObserver = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          const video = entry.target;
+
+          if (entry.isIntersecting) {
+            enableAutoplay(video);
+            return;
+          }
+
+          disableAutoplay(video);
+        });
+      },
+      {
+        rootMargin: "200px 0px",
+        threshold: 0.15
+      }
+    );
+
+    managedVideos.forEach((video) => {
+      videoObserver.observe(video);
+    });
+  } else {
+    managedVideos.forEach((video) => {
+      enableAutoplay(video);
+    });
+  }
+}
+
+if (hoverVideos.length && !prefersReducedMotion && useHoverHomeVideos) {
+  if (!isHomeTemplate) {
+    hoverVideos.forEach((video) => {
+      enableAutoplay(video);
+    });
+  } else {
+    const warmHoverVideos = () => {
+      hoverVideos.forEach((video) => {
+        if (!video.dataset.activated) {
+          video.dataset.playWhenReady = "false";
+          activateVideo(video);
+        }
+      });
+    };
+
+    if ("requestIdleCallback" in window) {
+      window.requestIdleCallback(warmHoverVideos, { timeout: 1500 });
+    } else {
+      window.setTimeout(warmHoverVideos, 300);
+    }
+
+    hoverVideos.forEach((video) => {
+      const trigger = video.closest(".project-card__link");
+
+      if (!trigger) {
+        return;
+      }
+
+      trigger.addEventListener("mouseenter", () => {
+        video.dataset.playWhenReady = "true";
+        activateVideo(video);
+      });
+
+      trigger.addEventListener("mouseleave", () => {
+        video.dataset.playWhenReady = "false";
+        resetVideo(video);
+      });
+
+      trigger.addEventListener("focusin", () => {
+        video.dataset.playWhenReady = "true";
+        activateVideo(video);
+      });
+
+      trigger.addEventListener("focusout", () => {
+        video.dataset.playWhenReady = "false";
+        resetVideo(video);
+      });
+    });
+  }
+} else if (hoverVideos.length && !prefersReducedMotion) {
+  if (!isHomeTemplate) {
+    hoverVideos.forEach((video) => {
+      enableAutoplay(video);
+    });
+  } else if ("IntersectionObserver" in window) {
+    const warmTouchHomeVideos = () => {
+      hoverVideos.forEach((video) => {
+        if (!video.dataset.activated) {
+          video.dataset.playWhenReady = "false";
+          activateVideo(video);
+        }
+      });
+    };
+
+    if ("requestIdleCallback" in window) {
+      window.requestIdleCallback(warmTouchHomeVideos, { timeout: 1500 });
+    } else {
+      window.setTimeout(warmTouchHomeVideos, 300);
+    }
+
+    const hoverVideoObserver = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          const video = entry.target;
+
+          if (entry.isIntersecting) {
+            enableAutoplay(video);
+            return;
+          }
+
+          disableAutoplay(video);
+        });
+      },
+      {
+        rootMargin: "150px 0px",
+        threshold: 0.2
+      }
+    );
+
+    hoverVideos.forEach((video) => {
+      hoverVideoObserver.observe(video);
+    });
+  } else {
+    hoverVideos.forEach((video) => {
+      enableAutoplay(video);
+    });
+  }
+} else if (hoverVideos.length) {
+  hoverVideos.forEach((video) => {
+    video.pause();
+    markMediaReady(video);
+  });
+}
 
 const currentUrl = new URL(window.location.href);
 const samePageLinks = Array.from(document.querySelectorAll('a[href]'));
