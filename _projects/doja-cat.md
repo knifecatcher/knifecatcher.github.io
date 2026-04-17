@@ -11,7 +11,7 @@ gallery:
   - src: /assets/dojaCat/dojaCat_rbm_01.jpg
     alt: Doja Cat x Ray-Ban Meta
     aspect: landscape
-  - src: /assets/dojaCat/dojaCat_rbm_pov.jpg
+  - src: /assets/dojaCat/dojaCat_rbm_pov.JPG
     alt: Doja Cat x Ray-Ban Meta
     aspect: portrait
   - src: /assets/dojaCat/dojaCat_rbm_02.jpg

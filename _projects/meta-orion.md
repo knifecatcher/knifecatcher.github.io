@@ -21,7 +21,7 @@ gallery:
   - src: /assets/orion/orion_multitasking.gif
     alt: Animated multitasking concept for Orion
     aspect: landscape
-  - src: /assets/orion/orion_jt_mz.jpg
+  - src: /assets/orion/orion_jt_mz.JPG
     alt: Mark Zuckerberg Orion demo
     aspect: square
   - src: /assets/orion/orion_emg.webm

@@ -11,7 +11,7 @@ gallery:
   - src: /assets/rayBanMeta/rbm_ask.mp4
     alt: Ray-Ban Meta AI
     aspect: square
-  - src: /assets/rayBanMeta/rbm_stack.jpg
+  - src: /assets/rayBanMeta/rbm_stack.JPG
     alt: Ray-Ban Meta variants
     aspect: landscape
   - src: /assets/rayBanMeta/rbm_capabilities.jpg
@@ -20,7 +20,7 @@ gallery:
   - src: /assets/rayBanMeta/rbm_lineup.jpg
     alt: Ray-Ban Meta lineup
     aspect: square
-  - src: /assets/rayBanMeta/rbm_hstn.jpg
+  - src: /assets/rayBanMeta/rbm_hstn.JPG
     alt: Ray-Ban Meta HSTN
     aspect: square
 ---

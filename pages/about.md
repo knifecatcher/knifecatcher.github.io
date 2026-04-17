@@ -37,18 +37,28 @@ permalink: /info/
       {% assign role = title_parts | first %}
       {% assign place = title_parts | last %}
       {% assign summary = item.description %}
+      {% assign logo_path = '' %}
       {% case place %}
         {% when 'Meta' %}
+          {% assign logo_path = '/assets/jd/meta_logo.png' %}
           {% assign summary = 'Design and build high-impact prototypes for next-generation AR, AI, and wearable devices.' %}
         {% when 'Apple' %}
+          {% assign logo_path = '/assets/jd/apple_logo.png' %}
           {% assign summary = 'Contributed to the development of user-centric designs for cutting-edge consumer products.' %}
         {% when 'Pixar Animation Studios' %}
+          {% assign logo_path = '/assets/jd/pixar_logo.png' %}
           {% assign summary = 'Helped create award-winning animated films, including “Incredibles 2”, “Coco”, and “Cars 3”, as well as “Coco VR”, Pixar’s first VR project.' %}
         {% when 'Moonbot Studios' %}
+          {% assign logo_path = '/assets/jd/moonbot_logo.png' %}
           {% assign summary = 'Created animation and interactive projects for clients like Gatorade, Dolby, Amazon, Samsung, and the National Ad Council. Team accolades include 1 Academy Award, 4 Emmy Awards, 14 Cannes Lions Awards, and 17 Clio Awards.' %}
       {% endcase %}
       <article class="mini-resume__item">
-        <p class="mini-resume__headline">{{ place }} - {{ role }}</p>
+        <p class="mini-resume__headline">
+          {% unless logo_path == '' %}
+            <img class="mini-resume__logo" src="{{ logo_path | relative_url }}" alt="" aria-hidden="true">
+          {% endunless %}
+          <span>{{ place }} - {{ role }}</span>
+        </p>
         <p class="mini-resume__range">{{ item.from }} to {{ item.to }}</p>
         <p class="mini-resume__description">{{ summary }}</p>
       </article>

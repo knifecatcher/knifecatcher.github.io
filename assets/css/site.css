@@ -892,9 +892,19 @@ h3 {
 }
 
 .mini-resume__headline {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
   font-family: "Playfair Display", serif;
   font-size: clamp(1rem, 1.5vw, 1.16rem);
   color: #17120f;
+}
+
+.mini-resume__logo {
+  width: auto;
+  height: 0.95rem;
+  flex: 0 0 auto;
+  object-fit: contain;
 }
 
 .mini-resume__range {
