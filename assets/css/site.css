@@ -322,7 +322,8 @@ h3 {
 }
 
 .project-grid {
-  column-count: 3;
+  --project-grid-columns: 3;
+  column-count: var(--project-grid-columns);
   column-gap: 0.5rem;
 }
 
@@ -462,6 +463,36 @@ h3 {
   .project-card__chip {
     padding: 0.38rem 0.76rem;
     font-size: 0.76rem;
+  }
+}
+
+@media (min-width: 2400px) {
+  .project-grid {
+    --project-grid-columns: 4;
+  }
+}
+
+@media (min-width: 3200px) {
+  .project-grid {
+    --project-grid-columns: 5;
+  }
+}
+
+@media (min-width: 4000px) {
+  .project-grid {
+    --project-grid-columns: 6;
+  }
+}
+
+@media (min-width: 4800px) {
+  .project-grid {
+    --project-grid-columns: 7;
+  }
+}
+
+@media (min-width: 5600px) {
+  .project-grid {
+    --project-grid-columns: 8;
   }
 }
 
