@@ -41,16 +41,16 @@ permalink: /info/
       {% case place %}
         {% when 'Meta' %}
           {% assign logo_path = '/assets/jd/meta_logo.png' %}
-          {% assign summary = 'Design and build high-impact prototypes for next-generation AR, AI, and wearable devices.' %}
+          {% assign summary = 'Prototype new ways to interact with AI across Ray-Ban Meta glasses and emerging devices. Build high-fidelity software demos that help evaluate new interactions and shape product direction, with prototypes regularly presented to Meta’s CEO and senior leadership.' %}
         {% when 'Apple' %}
           {% assign logo_path = '/assets/jd/apple_logo.png' %}
-          {% assign summary = 'Contributed to the development of user-centric designs for cutting-edge consumer products.' %}
+          {% assign summary = 'Designed and prototyped expressive communication and digital identity experiences for Apple platforms, contributing to shipped consumer products.' %}
         {% when 'Pixar Animation Studios' %}
           {% assign logo_path = '/assets/jd/pixar_logo.png' %}
-          {% assign summary = 'Helped create award-winning animated films, including “Incredibles 2”, “Coco”, and “Cars 3”, as well as “Coco VR”, Pixar’s first VR project.' %}
+          {% assign summary = 'Lit and rendered shots for “Incredibles 2,” “Coco,” and “Cars 3,” working with Katana, RenderMan, Nuke, and Pixar’s proprietary production pipeline. Also contributed to “Coco VR,” Pixar’s first VR project.' %}
         {% when 'Moonbot Studios' %}
           {% assign logo_path = '/assets/jd/moonbot_logo.png' %}
-          {% assign summary = 'Created animation and interactive projects for clients like Gatorade, Dolby, Amazon, Samsung, and the National Ad Council. Team accolades include 1 Academy Award, 4 Emmy Awards, 14 Cannes Lions Awards, and 17 Clio Awards.' %}
+          {% assign summary = 'Created animation and interactive work for clients including Gatorade, Dolby, Amazon, Samsung, and the Ad Council. Worked across technical art, 3D production, and real-time experiences.' %}
       {% endcase %}
       <article class="mini-resume__item">
         <p class="mini-resume__headline">
