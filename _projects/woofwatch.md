@@ -11,7 +11,7 @@ gallery:
   - src: /assets/woofwatch/woofwatch_inventory.jpg
     alt: WoofWatch inventory screen
     aspect: portrait
-  - src: /assets/woofwatch/woofwatch_autorifle.jpg
+  - src: /assets/woofwatch/combat_downtown.png
     alt: WoofWatch combat scene
     aspect: landscape
   - src: /assets/woofwatch/woofwatch_dialogue.jpg
@@ -20,11 +20,11 @@ gallery:
   - src: /assets/woofwatch/woofwatch_downtown.jpg
     alt: Downtown environment from WoofWatch
     aspect: landscape
-  - src: /assets/woofwatch/woofwatch_mailbot.jpg
-    alt: MailBot encounter in WoofWatch
+  - src: /assets/woofwatch/loot.jpg
+    alt: Loot pickups in WoofWatch
     aspect: square
-  - src: /assets/woofwatch/woofwatch_mailbot_02.jpg
-    alt: Alternate MailBot scene
+  - src: /assets/woofwatch/woofwatch_mailbot.jpg
+    alt: MailBot dialogue
     aspect: portrait
   - src: /assets/woofwatch/enemies_lineup.png
     alt: WoofWatch enemy lineup
