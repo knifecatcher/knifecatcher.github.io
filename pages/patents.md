@@ -90,6 +90,16 @@ permalink: /patents/
 
 <section class="patents-shell">
   <div class="patents-grid">
+    <a class="patent-card" href="https://patents.google.com/patent/US20260211539A1/" target="_blank" rel="noopener noreferrer">
+      <div class="patent-card__top">
+        <span class="patent-card__number">US20260211539A1</span>
+        <span class="patent-card__number">2026</span>
+      </div>
+      <div class="patent-card__body">
+        <h2>Obtaining and Assisting with User Tasks at Head and Wrist Wearable Devices</h2>
+      </div>
+    </a>
+
     <a class="patent-card" href="https://patents.google.com/patent/US20260010236A1" target="_blank" rel="noopener noreferrer">
       <div class="patent-card__top">
         <span class="patent-card__number">US20260010236A1</span>
